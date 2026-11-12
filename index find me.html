@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lakeshore RP – Server Rulebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#07070a;--ink:#f3efe6;--mut:#b4b0a4;--dim:#8f8b80;--gold:#e6cf9f;--g2:#d9b86a;--line:rgba(255,255,255,.08);--card:rgba(255,255,255,.035);--metal:linear-gradient(135deg,#f8ebc0 0%,#d9b86a 38%,#8c6a2b 58%,#ecd38f 82%,#b98f43 100%)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}a:hover{color:#fff}
+.glow{position:absolute;inset:0 0 auto 0;height:900px;pointer-events:none;background:radial-gradient(1200px 600px at 50% -10%,rgba(217,189,138,.17),transparent 60%),radial-gradient(800px 500px at 90% 20%,rgba(25,240,208,.04),transparent 60%)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,72px);position:relative}
+.serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:-.01em}
+.metal{background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lbl{font-size:12px;letter-spacing:.3em;color:var(--g2);font-weight:500;text-transform:uppercase}
+header.top{position:sticky;top:0;z-index:20;background:rgba(7,7,10,.88);border-bottom:1px solid rgba(217,184,106,.3)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:68px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.brand{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.34em;color:var(--g2);font-weight:600}
+.dia{width:10px;height:10px;transform:rotate(45deg);background:var(--metal);box-shadow:0 0 14px rgba(217,184,106,.5)}
+nav{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;letter-spacing:.06em}
+nav a{color:var(--mut);padding:8px 0}nav a:hover{color:var(--gold)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#22d3ee;margin-right:8px;vertical-align:1px}
+.hero{padding:clamp(56px,10vw,120px) 0 clamp(40px,7vw,80px);display:flex;flex-direction:column;gap:26px;max-width:900px}
+.eyebrow{display:flex;align-items:center;gap:14px}.eyebrow i{width:44px;height:1px;background:var(--metal)}
+h1{margin:0;font-size:clamp(46px,8.4vw,96px);line-height:.98}
+h1 .l1{background:linear-gradient(180deg,#fff7e2 0%,#e6cf9f 55%,#a98650 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 .l2{display:inline-block;padding-bottom:.08em}
+.lede{margin:0;font-size:clamp(16px,1.6vw,19px);color:var(--mut);max-width:620px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border-radius:999px;font-weight:600;font-size:15px}
+.btn.gold{background:linear-gradient(180deg,#f1dcae,#c9a566);color:#14110a;box-shadow:0 10px 40px rgba(217,189,138,.25)}.btn.gold:hover{color:#14110a;filter:brightness(1.06)}
+.btn.line{border:1px solid rgba(217,189,138,.45);color:var(--ink)}
+section{padding:clamp(48px,8vw,96px) 0;border-top:1px solid var(--line)}
+.sh{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+h2{margin:0;font-size:clamp(34px,4.6vw,54px);line-height:1.05}
+.sh p{margin:0;color:var(--mut);max-width:660px}
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.09);border-top-color:rgba(217,184,106,.6);border-radius:20px;padding:30px;display:flex;flex-direction:column;gap:12px}
+.card .n{font-size:60px;line-height:1}
+.card h3{margin:0;font-size:20px;font-weight:600}.card p{margin:0;color:var(--mut);font-size:15px}
+.tools{display:flex;flex-direction:column;gap:14px;position:sticky;top:68px;z-index:10;background:var(--bg);padding:14px 0}
+.search{width:100%;min-height:54px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:0 24px;color:var(--ink);font:15px Inter,sans-serif;outline:none}
+.search:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,189,138,.18)}
+.search::placeholder{color:#8a867b}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{min-height:44px;padding:0 20px;border-radius:999px;font:500 14px Inter,sans-serif;border:1px solid rgba(255,255,255,.16);background:transparent;color:#d9d5c9;cursor:pointer}
+.chip[aria-pressed=true]{background:linear-gradient(180deg,#f1dcae,#c9a566);color:#14110a;border-color:var(--gold)}
+.count{font-size:13px;color:var(--dim)}
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:180px 1fr auto;gap:10px 32px;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--line)}
+.row .a{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--gold);line-height:1.1}
+.row .b{font-size:18px;line-height:1.55}
+.pill{font-size:12px;letter-spacing:.14em;color:var(--dim);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:8px 14px;white-space:nowrap}
+.pill:hover{border-color:var(--gold);color:var(--gold)}
+.empty{padding:40px 0;color:var(--dim)}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.tier{border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:24px;background:var(--card)}
+.tier .t{font-size:12px;letter-spacing:.22em}.tier h3{margin:8px 0 4px;font-size:20px;font-weight:600}
+.tier p{margin:0 0 14px;color:var(--mut);font-size:14px}
+.tier ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.tier li{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:6px}.tier li span{color:var(--dim)}
+.note{color:var(--mut);font-size:15px;margin-top:22px}
+.sec{border-bottom:1px solid var(--line)}.sec:first-of-type{border-top:1px solid var(--line)}
+.sec summary{list-style:none;display:flex;align-items:center;gap:22px;padding:24px 4px;cursor:pointer;min-height:44px}
+.sec summary::-webkit-details-marker{display:none}
+.sec summary:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:8px}
+.sn{font-family:'Cormorant Garamond',serif;font-size:30px;width:44px;background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+.st{flex:1;font-size:clamp(18px,2vw,22px);font-weight:600}
+.chev{width:12px;height:12px;border-right:1.5px solid var(--g2);border-bottom:1.5px solid var(--g2);transform:rotate(45deg);transition:transform .18s}
+.sec[open] .chev{transform:rotate(-135deg)}
+.sb{padding:0 4px 36px 66px;color:#dcd8cd;max-width:900px}
+.sb h3{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--gold);font-size:26px;margin:30px 0 8px}
+.sb p{margin:0 0 12px}.sb strong{color:#fff;font-weight:600}.sb li{margin-bottom:6px}
+.tw{overflow-x:auto;margin:14px 0 20px;border:1px solid var(--line);border-radius:14px}
+.sb table{border-collapse:collapse;width:100%;font-size:14px;min-width:520px}
+.sb th{text-align:left;color:var(--g2);font-weight:500;letter-spacing:.08em;font-size:12px;text-transform:uppercase;background:rgba(217,184,106,.06)}
+.sb th,.sb td{padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.sb tr:last-child td{border-bottom:0}
+mark{background:rgba(217,184,106,.3);color:#fff;border-radius:3px;padding:0 2px}
+.hide{display:none}
+.appeal{border:1px solid rgba(217,184,106,.5);border-radius:24px;padding:clamp(28px,4vw,48px);background:linear-gradient(135deg,rgba(217,189,138,.12),rgba(255,255,255,.02));display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.appeal h2{font-size:clamp(30px,3.6vw,42px)}.appeal p{margin:8px 0 0;color:var(--mut)}
+footer{padding:48px 0 64px;text-align:center;font-size:12px;letter-spacing:.3em;color:#a78a4e;border-top:1px solid rgba(217,184,106,.35)}
+.totop{position:fixed;right:20px;bottom:20px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(217,184,106,.5);background:rgba(7,7,10,.9);display:none;align-items:center;justify-content:center;z-index:30}
+.totop.on{display:flex}
+@media (max-width:720px){.row{grid-template-columns:1fr;gap:6px}.row .a{font-size:26px}.row .b{font-size:16px}.pill{justify-self:start}.sb{padding-left:4px}nav{gap:16px}header.top{position:static}.tools{top:0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.chev{transition:none}}
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<header class="top"><div class="wrap">
+<div class="brand"><span class="dia" aria-hidden="true"></span>LAKESHORE ROLEPLAY</div>
+<nav aria-label="Sections"><a href="#basics">The basics</a><a href="#short">Quick rules</a><a href="#full">Full rulebook</a><a href="#penalties">Penalties</a><a href="https://discord.gg/YOUR-INVITE"><span class="dot" aria-hidden="true"></span>Discord</a></nav>
+</div></header>
+
+<main class="wrap">
+<div class="hero">
+<div class="eyebrow"><i aria-hidden="true"></i><span class="lbl">The server rulebook · 18+</span></div>
+<h1 class="serif"><span class="l1">Know the code.</span><br><span class="l2 metal">Own the city.</span></h1>
+<p class="lede">Everything that gets people banned, in plain words. Read the basics in one minute, search the rest. Every line links to its full numbered rule.</p>
+<div class="btns"><a class="btn gold" href="#basics">Start with the basics</a><a class="btn line" href="#short">Search the rules</a></div>
+</div>
+
+<section id="basics">
+<div class="sh"><span class="lbl">If you read nothing else</span><h2 class="serif">Three rules cover most of it.</h2></div>
+<div class="three">
+<div class="card"><div class="n serif metal">1</div><h3>Staff first, argue after</h3><p>Do what staff say right now. Disagree in a ticket afterwards. You will be heard.</p></div>
+<div class="card"><div class="n serif metal">2</div><h3>Play a real person</h3><p>Your character values their life, feels pain, and only knows what they saw or heard.</p></div>
+<div class="card"><div class="n serif metal">3</div><h3>Have a reason</h3><p>No fight, robbery or kill without a real reason in the story. No reason is RDM or VDM.</p></div>
+</div>
+</section>
+
+<section id="short">
+<div class="sh"><span class="lbl">The quick rules</span><h2 class="serif">Find your rule in seconds.</h2><p>The 25 rules that get people banned. Search also looks through the full rulebook below.</p></div>
+<div class="tools">
+<input id="q" class="search" type="search" aria-label="Search the rules" placeholder="Search: gang, heist, stream, cops…" autocomplete="off">
+<div class="chips" role="group" aria-label="Filter by topic" id="chips"></div>
+<div class="count" id="count" aria-live="polite"></div>
+</div>
+<div class="rows" id="rows"></div>
+</section>
+
+<section id="full">
+<div class="sh"><span class="lbl">The full rulebook</span><h2 class="serif">Every rule, numbered.</h2><p>Staff use these numbers to rule on a case. If the quick rules and the full rulebook ever disagree, the full rulebook wins. Tap a section to open it.</p></div>
+<div class="btns" style="margin-bottom:20px"><button class="chip" id="openall" type="button">Open all</button><button class="chip" id="closeall" type="button">Close all</button></div>
+<div id="secs">
+<details class="sec" id="s1"><summary><span class="sn">01</span><span class="st">Read This First</span><span class="chev" aria-hidden="true"></span></summary><div class="sb"><p>These rules apply from the moment you connect to the city, the
+Discord or any LSRP stream, clip or social post. Not knowing a rule is
+not a defense. Rule numbers are fixed so staff and players can cite them
+("Rule 4.3").</p>
+<p><strong>What Lakeshore is.</strong> A semi-serious roleplay city.
+Characters are people with fears, histories and bills. Crime, police and
+medical are all real jobs with real consequences. We want stories, not
+stat-chasing.</p>
+<h3 id="11-rule-that-closes-every-loophole">1.1 Rule that closes every
+loophole</h3>
+<p>1.1.1 <strong>Intent over wording.</strong> If you do something that
+has the same effect as a banned action, it is banned. "The rule didn't
+say that exact thing" is never a defense.</p>
+<p>1.1.2 <strong>Staff decide edge cases.</strong> If a situation is not
+covered, staff rule on it using the spirit of Section 1.2. The ruling
+then becomes a written rule within 7 days.</p>
+<p>1.1.3 <strong>Comply now, appeal after.</strong> If staff give you an
+instruction in the city, follow it immediately. Argue it afterward
+through a report (Rule 9.4). Arguing in the moment is its own
+violation.</p>
+<p>1.1.4 <strong>You are responsible for your group.</strong> Gang
+leaders, crew organizers and business owners answer for rule breaks they
+order, allow or hide (Rule 5.2.4).</p>
+<p>1.1.5 <strong>Rules stack.</strong> Breaking two rules in one act is
+two violations.</p>
+<p>1.1.6 <strong>No penalty for an unwritten rule the first
+time.</strong> If staff rule on something this book does not cover (Rule
+1.1.2), the first offense is a warning only, and the rule is written
+down within 7 days. Rule 1.1.1 still applies when the act clearly has
+the same effect as a banned one.</p>
+<h3 id="12-the-spirit-of-the-server">1.2 The spirit of the server</h3>
+<ol type="1">
+<li>Make the other player's scene better, not shorter.</li>
+<li>Give people time to react (Rule 3.4).</li>
+<li>Risk must be real for everyone, including you.</li>
+<li>Win by story, not by exploiting.</li>
+<li>Outside the city, be decent.</li>
+</ol>
+<h3 id="13-definitions-these-words-mean-exactly-this">1.3 Definitions
+(these words mean exactly this)</h3>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>IC</td>
+<td>In character: inside the story, through your character.</td>
+</tr>
+<tr class="even">
+<td>OOC</td>
+<td>Out of character: you as a person. Voice chat OOC and /ooc are
+limited (Rule 2.4).</td>
+</tr>
+<tr class="odd">
+<td>Scene</td>
+<td>An interaction between two or more characters that starts when they
+are in range of each other and aware of each other. It ends when one
+side has left and gone more than 3 minutes without contact, or staff
+close it.</td>
+</tr>
+<tr class="even">
+<td>Active scene</td>
+<td>A scene with a live threat: weapons drawn, a pursuit, a robbery, a
+hostage or a fight.</td>
+</tr>
+<tr class="odd">
+<td>Restart</td>
+<td>One of the 4 scheduled daily server restarts.</td>
+</tr>
+<tr class="even">
+<td>Staff</td>
+<td>Anyone with the in-game Admin, Sr Admin or Head Admin role (Levels
+3, 2, 1) or the owner.</td>
+</tr>
+<tr class="odd">
+<td>Gang</td>
+<td>A group approved by staff in the gang tool. A group of friends
+without approval is a crew, not a gang.</td>
+</tr>
+<tr class="even">
+<td>Crew</td>
+<td>A temporary group of 2 to 4 characters formed on the tablet for a
+job.</td>
+</tr>
+<tr class="odd">
+<td>Dirty cash</td>
+<td>The physical dirty cash item. It is not a legal currency.</td>
+</tr>
+<tr class="even">
+<td>Cop count</td>
+<td>The number of officers on duty at the moment a crime starts.</td>
+</tr>
+<tr class="odd">
+<td>Cooldown</td>
+<td>Time you must wait. Starts when the activity ends (escape, arrest,
+death or scene end), unless a rule says otherwise.</td>
+</tr>
+<tr class="even">
+<td>Alt</td>
+<td>A second account or second character used to benefit your
+first.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="14-before-you-play">1.4 Before you play</h3>
+<p>1.4.1 You must have a working microphone and use voice chat for
+roleplay. Typing is for /me, /do and commands only.</p>
+<p>1.4.2 One account per person. No shared accounts.</p>
+<p>1.4.3 LSRP is 18+. Act like an adult: no kid behavior, no tantrums in
+the city or the Discord.</p>
+<p>1.4.4 English is the server language in public. Use it in the city
+and Discord support channels.</p>
+<p>1.4.5 You must read this book once. The first time you join you will
+be asked to confirm that you did.</p>
+</div></details>
+<details class="sec" id="s2"><summary><span class="sn">02</span><span class="st">Community Conduct (City, Discord, Streams)</span><span class="chev" aria-hidden="true"></span></summary><div class="sb"><h3 id="21-respect">2.1 Respect</h3>
+<p>2.1.1 No harassment, threats, doxxing, stalking, or targeting a
+person over time, in or out of the city.</p>
+<p>2.1.2 No hate speech, slurs or discrimination about race, ethnicity,
+religion, gender, gender identity, sexuality, disability or nationality.
+This applies IC and OOC. A character may be rude or criminal. A
+character may not be a vehicle for real-world hate. "It was my
+character" is not a defense.</p>
+<p>2.1.3 No sexual content involving minors, ever. No non-consensual
+sexual roleplay. Sexual roleplay is not allowed in public spaces, and is
+limited to private, mutually agreed scenes between adults with a
+fade-to-black. Staff may end any scene.</p>
+<p>2.1.4 No real-world self-harm or suicide roleplay or talk used to
+guilt, threaten or pressure anyone. If a player is in real distress,
+stop the scene and tell staff.</p>
+<p>2.1.5 Keep real politics and real tragedies out of the city.</p>
+<h3 id="22-privacy">2.2 Privacy</h3>
+<p>2.2.1 Never share another player's real name, address, workplace,
+photos, voice, or account details.</p>
+<p>2.2.2 Do not record or share private voice calls from outside the
+city. Do not post staff tickets, staff chat or Discord DMs without
+permission from every person in them.</p>
+<h3 id="23-honesty">2.3 Honesty</h3>
+<p>2.3.1 No lying to staff. Lying in a report, ticket or appeal doubles
+the penalty on the original issue.</p>
+<p>2.3.2 Do not edit clips. A clip must show the full event from at
+least 60 seconds before it started to when it ended.</p>
+<h3 id="24-ooc-speech">2.4 OOC speech</h3>
+<p>2.4.1 OOC talk in the city is allowed for technical issues,
+emergencies and staff matters only. Use /ooc, and keep it to one short
+line.</p>
+<p>2.4.2 You may not give or ask for in-city information through
+Discord, text or a stream during an active scene (see Rule 3.3).</p>
+<p>2.4.3 Do not use OOC to avoid a consequence: no "wait, I have to go"
+in the middle of a scene to dodge it (Rule 3.7).</p>
+<h3 id="25-streaming-and-content-creation">2.5 Streaming and content
+creation</h3>
+<p>2.5.1 You may stream and record. You must delay your stream by at
+least 2 minutes, with your location and voice chat visible only on the
+delay.</p>
+<p>2.5.2 Do not show other players' streams, Discord or private chat in
+the city while you are IC.</p>
+<p>2.5.3 Stream sniping is a violation of Rule 3.3 and gets the harsher
+penalty in Section 9.</p>
+<p>2.5.4 Staff may ask you to stop or change a stream. Comply
+immediately (Rule 1.1.3).</p>
+<h3 id="26-advertising-and-poaching">2.6 Advertising and poaching</h3>
+<p>2.6.1 No advertising other servers, communities or sales, in the
+city, Discord or DMs.</p>
+<p>2.6.2 No recruiting our staff or players away.</p>
+<h3 id="27-accounts">2.7 Accounts</h3>
+<p>2.7.1 Alts may not benefit your main in any way: no moving money,
+items, vehicles or information between them. Both accounts are
+penalized.</p>
+<p>2.7.2 Ban evasion with a new account gets all linked accounts banned
+permanently.</p>
+</div></details>
+<details class="sec" id="s3"><summary><span class="sn">03</span><span class="st">Core Roleplay Rules</span><span class="chev" aria-hidden="true"></span></summary><div class="sb"><h3 id="31-fail-rp">3.1 Fail RP</h3>
+<p>3.1.1 <strong>Definition.</strong> Fail RP is acting in a way that is
+not believable for your character or the situation, or that breaks the
+story for others.</p>
+<p>3.1.2 Examples that are always Fail RP: walking away from a crash
+that should have hurt you; sprinting normally with a serious injury;
+ignoring a gun pointed at you; driving normally after being told to stop
+by police and then stopping only because the pursuit became
+inconvenient; "forgetting" something to avoid a consequence.</p>
+<p>3.1.3 Your character reacts to injuries, fear and pain. The injury
+system sets the minimum. You may act worse than the system, never
+better.</p>
+<p>3.1.4 Your character has a job, a home and a life. A character who
+commits only crimes and has no other visible life for more than 14 days
+may be asked by staff to explain their income story.</p>
+<h3 id="32-your-character">3.2 Your character</h3>
+<p>3.2.1 Your character must have a real-sounding first and last name.
+No celebrities, no real criminals, no jokes, no names taken from
+fiction.</p>
+<p>3.2.2 You may have up to the character slots your account has.
+Characters on the same account may not know each other IC, may not help
+each other, and may not trade between them (Rule 2.7.1).</p>
+<p>3.2.3 Do not change your character's face, voice or name to avoid
+police or a consequence. Appearance changes need a believable in-story
+reason and must go through the in-game clothing and barber systems.</p>
+<p>3.2.4 Your character does not know what you know. Your character has
+only learned things they saw, heard or were told in character.</p>
+<h3 id="33-metagaming">3.3 Metagaming</h3>
+<p>3.3.1 <strong>Definition.</strong> Metagaming is using information
+your character has not learned in character to make a decision.</p>
+<p>3.3.2 This includes: using Discord, streams, clips, text, voice calls
+or a second screen to learn where someone is or what they are doing;
+using a name from the scoreboard, nameplates or a dead player's
+identity; using the knowledge you have from another of your
+characters.</p>
+<p>3.3.3 You may act on information only if your character received it
+IC (seen, heard, told, found, read in an in-game item).</p>
+<p>3.3.4 Telling others in Discord to "come to the city" during an
+active scene is metagaming. Their characters may not respond to it.</p>
+<p>3.3.5 Stream sniping is watching or listening to another player's
+stream to gain an advantage. Penalty: Section 9, Tier 3.</p>
+<h3 id="34-powergaming">3.4 Powergaming</h3>
+<p>3.4.1 <strong>Definition.</strong> Powergaming is forcing an outcome
+on another player, or giving your character abilities, items or immunity
+that the game does not give.</p>
+<p>3.4.2 You must give the other player time to react: /me actions are
+attempts, not results. "/me tackles him to the ground" is wrong. "/me
+tries to tackle him" is right.</p>
+<p>3.4.3 No /me that does something the game has a mechanic for. Use the
+mechanic (cuff, search, carry, stash). Do not roleplay around it.</p>
+<p>3.4.4 No stating that you hold an item you do not have in your
+inventory. No describing injuries on someone else.</p>
+<p>3.4.5 If the other player cannot respond (they are unconscious or in
+a menu), you may only do what the game allows.</p>
+<h3 id="35-death-downed-and-new-life-rule-nlr">3.5 Death, downed and New
+Life Rule (NLR)</h3>
+<p>3.5.1 When you are downed and revived, you remember what happened to
+you. You may name your attacker only if you saw them IC.</p>
+<p>3.5.2 When you respawn after death (not revived), you forget the
+circumstances that led to your death. You may not go back to the area of
+death for 20 minutes. You may not use what you know against the people
+who killed you.</p>
+<p>3.5.3 You may not take revenge for a respawn death. You may take
+revenge for being downed and revived, after the 30-minute wait in Rule
+4.4.2.</p>
+<p>3.5.4 Your character may not talk about what happened to a respawned
+character with anyone IC.</p>
+<h3 id="36-value-of-life-nvl">3.6 Value of life (NVL)</h3>
+<p>3.6.1 <strong>Definition.</strong> NVL is not acting like you want to
+live.</p>
+<p>3.6.2 With a gun on you from a clear threat, you must comply, run in
+a believable way or negotiate. You may not run toward the shooter, draw
+on a group with a bigger force, or pick a fight you cannot win.</p>
+<p>3.6.3 You may not use your life as a weapon: no jumping off
+buildings, suicide-by-police, driving into a crowd, or blowing yourself
+up to gain an advantage.</p>
+<p>3.6.4 Self-sacrifice is allowed only with a clear IC reason that you
+have roleplayed first and that staff would call a believable story beat.
+It is rare and cannot be farmed for gain.</p>
+<h3 id="37-disconnecting-and-combat-logging">3.7 Disconnecting and
+combat logging</h3>
+<p>3.7.1 You may not disconnect, alt-F4 or crash to avoid a scene, an
+arrest, a search, a death or a hostage situation.</p>
+<p>3.7.2 If you drop for a real reason, tell staff in Discord within 10
+minutes. Reconnect and rejoin the scene as it was if it is still
+running. If it has ended, you accept the result.</p>
+<p>3.7.3 A disconnect during a scene counts as consent to a search of
+your belongings and a seizure of what you carried, as if you were still
+there.</p>
+<p>3.7.4 Logging off inside a hideout, home or apartment is allowed only
+when you are not in a scene.</p>
+<h3 id="38-communications">3.8 Communications</h3>
+<p>3.8.1 Do not use voice-changers that alter pitch to pretend to be
+another gender or age. Light changes for character voice are
+allowed.</p>
+<p>3.8.2 In-game radio, phone calls and texts are IC. A call is
+overheard if someone is in range.</p>
+<p>3.8.3 Discord is never IC unless an event says it is.</p>
+<h3 id="39-me-do-and-the-world">3.9 /me, /do and the world</h3>
+<p>3.9.1 /me describes what you do. /do describes what can be seen or
+sensed. Neither changes game state, and neither can be used to do a
+thing the game has no mechanic for (for example, "/do the door is
+unlocked").</p>
+<p>3.9.2 Respect the map: no entering closed interiors, no using props
+as ladders, no hiding in objects or the water to avoid a scene.</p>
+<h3 id="310-character-kill-ck">3.10 Character kill (CK)</h3>
+<p>3.10.1 A CK is the permanent end of a character. It requires both (a)
+staff approval and (b) the agreement of the player whose character is
+ending, or a staff ruling for rule breaks.</p>
+<p>3.10.2 Nobody can CK another character without staff approval.
+Threatening a CK is an RP tool, but carrying it out is a staff
+decision.</p>
+<p>3.10.3 After a CK the character's name, face and possessions (except
+what staff allow) are retired. The player may make a new character at
+once; the new character does not know the old one's life.</p>
+</div></details>
+<details class="sec" id="s4"><summary><span class="sn">04</span><span class="st">Violence and Conflict</span><span class="chev" aria-hidden="true"></span></summary><div class="sb"><h3 id="41-starting-violence">4.1 Starting violence</h3>
+<p>4.1.1 <strong>Valid reason.</strong> You may start violence only with
+a valid reason that your character has and can explain in under 30
+seconds to staff. A valid reason is one of: (a) self-defense against an
+immediate threat, (b) a declared gang war (Rule 5.6), (c) a robbery,
+kidnapping or heist you are committing under Section 6, (d) a debt or
+insult that has been escalated in roleplay for at least 5 minutes with a
+clear warning, (e) an event or scene staff have approved.</p>
+<p>4.1.2 <strong>Random Death Match (RDM).</strong> Killing or attacking
+a player without a valid reason. RDM includes shooting someone because
+they walked into your area, because you were bored, or because "they
+looked like a cop."</p>
+<p>4.1.3 <strong>Vehicle Death Match (VDM).</strong> Hitting a player
+with a vehicle on purpose without a valid reason. Ramming is allowed
+only in a pursuit (Rule 8.3) or as part of a valid reason.</p>
+<p>4.1.4 <strong>No kill on sight.</strong> There is no kill-on-sight.
+The only exception is two gangs that are in an active war (Rule 5.6),
+and only with each other's members.</p>
+<p>4.1.5 <strong>Warn first.</strong> Before using lethal force on a
+person who is not already attacking you, you must give a clear verbal
+warning and 10 seconds to comply. Exception: someone already shooting at
+you or at another person.</p>
+<p>4.1.6 <strong>Do not shoot unarmed or surrendering people</strong>
+(hands up, kneeling, cuffed, ziptied or in a menu). A surrender stands
+until they attack.</p>
+<h3 id="42-size-of-fight">4.2 Size of fight</h3>
+<p>4.2.1 Fights between criminals are limited to 6 people per side. Over
+that, you must retreat, surrender or ask staff for an event.</p>
+<p>4.2.2 You may not bring more than twice the number of players than
+the other side has to a fight unless they started it.</p>
+<p>4.2.3 Gang war rules (Rule 5.6) replace 4.2.1 for declared wars, with
+a cap of 8 per side.</p>
+<h3 id="43-escalation">4.3 Escalation</h3>
+<p>4.3.1 Use the least force that matches the threat. Fists with fists,
+knives with knives, guns with guns. If you pull a gun first on an
+unarmed person, you need a stronger valid reason.</p>
+<p>4.3.2 Do not use explosives, grenades or fire against a person except
+in a declared war, a heist (Rule 6.3) or an approved event.</p>
+<p>4.3.3 Drive-bys are allowed only in a declared war or as part of a
+valid reason. A drive-by in a safe zone or in a public crowd is
+prohibited.</p>
+<h3 id="44-after-the-fight">4.4 After the fight</h3>
+<p>4.4.1 <strong>Looting the dead.</strong> You may take weapons and
+illegal items only. Wallets, phones and personal items require the
+victim's consent or a valid robbery.</p>
+<p>4.4.2 <strong>Revenge.</strong> You may not hunt the person who
+downed you (and was revived) for 30 minutes. You may take revenge on a
+different scene through proper RP.</p>
+<p>4.4.3 <strong>Cool-down.</strong> After a fight where someone died,
+the attackers and defenders may not start another fight with the same
+group for 30 minutes unless the other group starts it.</p>
+<p>4.4.4 <strong>No chasing.</strong> You may not chase a person across
+the map to kill them after they have escaped. The scene ends 3 minutes
+after the last contact.</p>
+<h3 id="45-kidnapping-and-torture">4.5 Kidnapping and torture</h3>
+<p>4.5.1 A kidnapping needs a valid reason and may last up to 20 minutes
+IC before a decision (release, ransom or end). The kidnapped person may
+be held no more than 45 minutes in total without staff approval.</p>
+<p>4.5.2 Torture and abuse roleplay must stay inside what the other
+player is comfortable with. Any player may say "stop RP" and you must
+stop. Graphic content is limited to what the game's animations show.</p>
+<p>4.5.3 You may not kidnap a person who is in the middle of a job, a
+medical scene, an arrest, or who has just spawned.</p>
+<p>4.5.4 You may not CK a kidnapped person. See Rule 3.10.</p>
+<h3 id="46-protected-people">4.6 Protected people</h3>
+<p>4.6.1 Players doing EMS roleplay may not be attacked or robbed while
+treating a patient, except in a declared gang war when they are treating
+a member of the other gang and they were warned. (Specific EMS duty
+rules are in the EMS handbook.)</p>
+<p>4.6.2 Players in the first 30 minutes of a new character may not be
+robbed or kidnapped. They may be recruited or scammed through
+roleplay.</p>
+</div></details>
+<details class="sec" id="s5"><summary><span class="sn">05</span><span class="st">Criminal World Rules</span><span class="chev" aria-hidden="true"></span></summary><div class="sb"><p>These rules cover the Burner Tablet, drugs, gangs, turf, guns,
+laundering, burglary, heists and the grey market. Section 4 (violence)
+and Section 6 (robbery and hostages) apply on top of them.</p>
+<h3 id="51-the-burner-tablet">5.1 The Burner Tablet</h3>
+<p>5.1.1 One tablet per character. Progress belongs to the character.
+You may not sell, trade, rent or lend your progress, your login or your
+tablet's contacts.</p>
+<p>5.1.2 Characters with a police job may not buy or use a tablet. If a
+character switches to a police job, their tablet use stops (the progress
+is kept).</p>
+<p>5.1.3 A seized tablet shows only a limited view. Do not try to read
+the owner's progress OOC from a seized tablet. Police learn only what
+the MDT shows.</p>
+<p>5.1.4 Freelancers (Driver, Fixer, Fence, Lookout, Gunsmith) set their
+own prices inside the allowed range. Setting a price outside the range,
+hiring yourself or an alt, or trading catalog ratings is a violation
+(Rule 2.7.1).</p>
+<p>5.1.5 Catalog jobs are paid through escrow. You may not take payment
+outside escrow and then abandon the job, or ask for a refund after
+completion.</p>
+<h3 id="52-gangs">5.2 Gangs</h3>
+<p>5.2.1 <strong>Only staff-approved groups are gangs.</strong> You may
+not call yourselves a gang, wear gang colors, claim turf or hold a
+hideout until staff approve you in the gang tool. Applications go
+through staff only.</p>
+<p>5.2.2 Ranks are Boss, Lieutenant, Member and Prospect. Staff set the
+Boss. The Boss may promote and demote inside the gang tool.</p>
+<p>5.2.3 A gang that has no active member for 14 days is flagged. Staff
+may suspend or disband a flagged gang.</p>
+<p>5.2.4 <strong>Leaders are responsible.</strong> A Boss or Lieutenant
+who orders, allows or covers up a rule break by a member shares the
+penalty. Gang-wide strikes are possible for repeated violations (Section
+9).</p>
+<p>5.2.5 <strong>Joining and leaving.</strong> After leaving or being
+removed from a gang, a character must wait 3 days before joining another
+gang. This does not apply if staff removed the gang. Freelancers listed
+in the catalog are paused while in a gang.</p>
+<p>5.2.6 <strong>Gang hopping.</strong> You may not join a gang only to
+take its turf, stash or contacts and then leave. Joining must be a
+story, not a tool.</p>
+<p>5.2.7 <strong>Gang colors.</strong> Members must wear their gang's
+colors during a war, an organized fight or a heist so police and
+opponents can identify them. Colors are set at approval.</p>
+<p>5.2.8 <strong>Alliances.</strong> Gangs may trade or work together.
+They may not ally in a war against the same enemy (no "I'm in your gang
+for this fight only"). Joint heists follow Rule 6.2.</p>
+<p>5.2.9 <strong>Betrayal (insiding).</strong> A member who passes
+information or access to another group is allowed IC only if: the
+character has been in the gang for at least 3 days; the information was
+learned IC; and no item or cash has been removed outside the stash
+system. You may not join a gang with a plan to betray it from the first
+day.</p>
+<p>5.2.10 <strong>Hideouts are safe from robbery.</strong> Nobody may
+enter a hideout who is not a member or invited by a member. No hideout
+can be robbed. Police may raid one only with an MDT case and a warrant.
+A member who invites an enemy to rob a hideout is breaking Rule
+5.2.9.</p>
+<p>5.2.11 <strong>Member cap.</strong> A gang may have at most 15
+members on its roster (Boss, Lieutenants, Members and Prospects all
+count). Staff can raise the cap for one gang in writing. Splitting a
+gang into a second approved gang to get around the cap is a Tier 3
+violation.</p>
+<p>5.2.12 <strong>New-player wait.</strong> A character cannot join a
+gang until the player has at least 3 days of total playtime on the
+server. This applies to the player, not the character, so a new
+character on an old account is not held back.</p>
+<p>5.2.13 <strong>No recruiting during a war.</strong> A member who
+joins a gang while it is in an active war may not take part in that
+war.</p>
+<h3 id="53-dirty-cash-and-laundering">5.3 Dirty cash and laundering</h3>
+<p>5.3.1 Dirty cash is a physical item. You may spend it only on
+supplies (including guns and parts from the arms dealer), bribes and
+gang dues. It cannot buy anything else.</p>
+<p>5.3.2 Dirty cash is not a payment for services between players, rent,
+vehicles, houses or business purchases. If you pay for those with dirty
+cash through a loophole, both sides are penalized.</p>
+<p>5.3.3 You may not convert dirty cash to clean cash by any method
+other than the laundromat, an accepted business deposit that the owner
+has switched on, or an approved script. Moving dirty money through a
+friend's bank account, or selling an item at a loss to a friend to
+"wash" the money, is a violation.</p>
+<p>5.3.4 A business owner who accepts dirty deposits does so voluntarily
+and takes the audit risk. You may not force a business owner to accept
+dirty deposits. A business owner may not accept dirty deposits and
+refuse police audit access.</p>
+<p>5.3.5 Never buy or sell in-game money, items or characters for real
+money, outside the server's official store.</p>
+<h3 id="54-drugs">5.4 Drugs</h3>
+<p>5.4.1 You may sell drugs to NPC buyers anywhere except safe zones
+(Rule 8.4). You may not sell near a school or hospital building.</p>
+<p>5.4.2 Selling to a player is allowed only through RP. A player may
+refuse. You may not force-sell to a player.</p>
+<p>5.4.3 No macros, auto-clickers, scripts or bots. Only you, with your
+own hands, may do the selling and cooking.</p>
+<p>5.4.4 No AFK farming. You must be at your keyboard for any action
+that makes money. Leaving a plot, lab or sale unattended for more than
+10 minutes counts as AFK.</p>
+<p>5.4.5 A batch's quality, price, batch number and demand are set by
+the server. You may not exploit a price mistake. If you find one, report
+it (Rule 7.3).</p>
+<p>5.4.6 Police may use drug evidence from a lead only through the MDT.
+You may not lie to staff about drug ownership to protect someone.</p>
+<h3 id="55-turf-and-tags">5.5 Turf and tags</h3>
+<p>5.5.1 Turf blocks are held through influence the server counts
+(sales, tags, rackets, contracts). Holding a block does not give you the
+right to kill anyone on it (Rule 4.1.1).</p>
+<p>5.5.2 <strong>Tags.</strong> Spraying over another gang's tag is a
+valid IC provocation. It is not a valid reason for violence by itself.
+The war rules (Rule 5.6) decide what comes next.</p>
+<p>5.5.3 <strong>Protection deals</strong> are opt-in on the tablet. You
+may threaten in roleplay, but you may not take money from a business,
+damage it, or hurt its staff to force a deal outside the tablet system.
+Taking from a register is a robbery (Section 6).</p>
+<p>5.5.4 <strong>Anchor pots.</strong> A pot may only be collected by
+the gang holding the block, or by a robbery that follows Section 6. You
+may not camp an anchor all day to deny a rival's collection (see Rule
+5.5.5).</p>
+<p>5.5.5 <strong>No camping.</strong> Standing at a contested location
+for longer than 30 minutes without a scene or an active war counts as
+camping. Staff may order you to leave.</p>
+<h3 id="56-gang-wars">5.6 Gang wars</h3>
+<p>5.6.1 A war is declared on the tablet by a Boss or Lieutenant. It
+starts after the notice time shown on the tablet (default 30 minutes).
+The defender may show up or concede. Conceding ends the war and gives
+the other gang the turf result.</p>
+<p>5.6.2 A war is only between the two gangs named. Both sides' members
+are KOS to each other, only while the war is active and only for the
+people who wear gang colors (Rule 5.2.7).</p>
+<p>5.6.3 Maximum 8 members per side at one time. Reinforcements may
+replace members who left or died but may not exceed 8.</p>
+<p>5.6.4 Kills alone do not score. Holding the block, tags and anchor
+control do. You may not farm kills to reach a score.</p>
+<p>5.6.5 A war ends at the next restart, when one side concedes or is
+wiped out, or when staff end it. After a war, the same two gangs may not
+declare another for 24 hours.</p>
+<p>5.6.6 Non-members, bystanders, business staff and EMS may not be
+targeted. Police may intervene normally. Do not shoot police unless they
+attack first or you are committing a crime under Section 6.</p>
+<p>5.6.7 You may not start a war to avoid an arrest or a penalty, or to
+cancel a heist cooldown.</p>
+<h3 id="57-guns">5.7 Guns</h3>
+<p>5.7.1 Guns are sorted into Class 1 (legal pistols from the shop),
+Class 2 (illegal pool from the arms dealer) and Class 3 (everything
+stronger, including all shotguns, player-made only).</p>
+<p>5.7.2 Carrying a visible gun in a public place needs a reason.
+Drawing a gun in a safe zone is prohibited (Rule 8.4).</p>
+<p>5.7.3 Gunsmith-made guns carry a serial and a maker's mark. Police
+can trace them in the MDT. You may not change, remove or hide a serial
+except by the in-game method, if one is added.</p>
+<p>5.7.4 You may not craft, sell or trade guns through alts or for real
+money. You may not mass-supply weapons to people you know are about to
+commit a rule break (for example, selling 20 guns to a new account that
+then starts an RDM run).</p>
+<p>5.7.5 The arms dealer moves between locations. Do not share his
+location publicly (street, Discord, stream) outside the characters who
+learned it IC.</p>
+<h3 id="58-house-burglary">5.8 House burglary</h3>
+<p>5.8.1 You may only rob the designated burglary houses. You may never
+rob a player home, an apartment, a player business or a hideout.</p>
+<p>5.8.2 You may not wait outside a designated house to rob another
+burglar. A burglar's loaded car may be robbed only under Rule 6.5.</p>
+<p>5.8.3 One crew per house at a time. You may not block entry or camp a
+house.</p>
+<p>5.8.4 A burglar must carry items one by one by hand into a vehicle.
+You may not use exploits to move items faster (clipping,
+double-carrying, vehicle glitches).</p>
+<p>5.8.5</p>
+<p>5.8.6 High-value houses need at least 1 officer on duty. The server
+checks this when the job starts.</p>
+<h3 id="59-grey-market">5.9 Grey market</h3>
+<p>5.9.1 Grey goods are fake or bootleg items under fictional brands.
+You may not use real-world brand names or logos in item names, stall
+signs or roleplay claims that imply a real brand.</p>
+<p>5.9.2 A stall pitch is claimed on the tablet or by placing the stall
+kit. You may not block a pitch by parking or standing in it for longer
+than 10 minutes without selling.</p>
+<p>5.9.3 Police may issue a citation and take the stock. You must comply
+with an IC citation and may not dispute it by hiding goods or
+disconnecting (Rule 3.7).</p>
+<p>5.9.4 Flea market nights follow the posted schedule. No selling
+stolen goods from a house burglary at the flea market stalls other than
+through the fence NPC.</p>
+<h3 id="510-heists-and-cop-count">5.10 Heists and cop count</h3>
+<p>5.10.1 Heists have tiers that need on-duty officers (see the table).
+You may not start a heist without the officers the tier needs.</p>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Tier</th>
+<th>Officers needed on duty</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Small</td>
+<td>0 to 1</td>
+</tr>
+<tr class="even">
+<td>Mid</td>
+<td>2 or more</td>
+</tr>
+<tr class="odd">
+<td>Big</td>
+<td>3 or more</td>
+</tr>
+</tbody>
+</table></div>
+<p>5.10.2 <strong>Cop count gaming is prohibited.</strong> You may not
+ask, pay, trick or force an officer to go off duty, switch to another
+character, or leave the city to change the count. You may not create a
+police alt or tell friends to go on duty to unlock a tier. Both sides
+are penalized.</p>
+<p>5.10.3 The server counts officers when the heist starts. You may not
+start a heist, then ask officers to leave.</p>
+<p>5.10.4 One heist at a time per gang or crew. Splitting your group to
+run two crimes at once is prohibited.</p>
+<p>5.10.5 Cooldowns and global timers are set by the server. You may not
+bypass them with alts, new groups or script tricks.</p>
+<p>5.10.6 No heist may start in the 30 minutes before a scheduled
+restart. A heist already running at that point may finish. No other
+illegal activity may start in the final 10 minutes before a restart.</p>
+<p>5.10.7 Police need not wait for a heist to finish to start
+negotiating. See Section 6 for hostages.</p>
+<h3 id="511-evidence-transport">5.11 Evidence transport</h3>
+<p>5.11.1 Police start a transport. It contains real seized items. Gangs
+may rob it as a heist (Section 6).</p>
+<p>5.11.2 The notice that gangs receive is vague and delayed. You may
+not use out-of-character information (a police friend, a Discord leak, a
+stream) to find the route (Rule 3.3).</p>
+<p>5.11.3 A police character who gives a gang the route is committing a
+violation, unless staff have approved the arc in advance.</p>
+<h3 id="512-staff-run-testing">5.12 Staff-run testing</h3>
+<p>5.12.1 Staff may use a test mode that simulates officer counts. It is
+not available to players. Using an exploit to copy it is a Tier 4
+violation (Section 9).</p>
+</div></details>
+<details class="sec" id="s6"><summary><span class="sn">06</span><span class="st">Robbery, Hostages and Police Contact (Civilian Side)</span><span class="chev" aria-hidden="true"></span></summary><div class="sb"><p>Police and EMS duty rules (SOPs) are written separately by the owner.
+This section covers what civilians and criminals must do.</p>
+<h3 id="61-robbing-players">6.1 Robbing players</h3>
+<p>6.1.1 You may rob a player only with a weapon pointed at them (or a
+clear and visible threat), a valid reason (Rule 4.1.1), and a roleplayed
+demand of at least 10 seconds.</p>
+<p>6.1.2 You may take cash, dirty cash, drugs, guns, burglary loot and
+goods from their stall. You may not take their phone, ID, keys to a
+vehicle they legally own, clothing they are wearing, or items that the
+server marks as untakeable.</p>
+<p>6.1.3 Maximum 1 robbery of the same person in 2 hours. Maximum 1
+robbery of the same group in 1 hour.</p>
+<p>6.1.4 You may not rob a person who is cuffed or ziptied unless you
+ziptied them as part of a valid robbery in the same scene. You may not
+rob a person who is downed or dead.</p>
+<p>6.1.5 You may not rob a player who is in the first 30 minutes of a
+new character (Rule 4.6.2), at a job in progress, in a safe zone, or in
+a hospital or police station.</p>
+<p>6.1.6 Stripping a victim (taking everything) is not allowed. Leave
+the victim with their phone, ID, keys and enough to roleplay (no less
+than 10 percent of their cash and one item).</p>
+<h3 id="62-groups-in-a-robbery-or-heist">6.2 Groups in a robbery or
+heist</h3>
+<p>6.2.1 Maximum group sizes for crimes are in the table below.</p>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Crime</th>
+<th>Max robbers</th>
+<th>Max hostages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Player robbery, ATM, store</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>House burglary</td>
+<td>4</td>
+<td>none required</td>
+</tr>
+<tr class="odd">
+<td>Small heist</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Mid heist</td>
+<td>6</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Big heist</td>
+<td>8</td>
+<td>3</td>
+</tr>
+</tbody>
+</table></div>
+<p>6.2.2 People from different groups working together in one crime must
+form a named group with matching outfits and register on the tablet as a
+crew before it starts.</p>
+<p>6.2.3 Looking out for a crime from nearby (lookout, driver) counts
+toward the limit.</p>
+<p>6.2.4 You may not add members during a scene. Replacements are
+allowed only for a member who has died, been arrested or left the scene,
+and the group cannot exceed the limit.</p>
+<h3 id="63-tools-and-force-in-heists">6.3 Tools and force in heists</h3>
+<p>6.3.1 Heists may use explosives only if the heist script provides
+them. Do not use extra explosives to break into other buildings.</p>
+<p>6.3.2 You may not leave the scene to resupply weapons, armor or ammo,
+then return to the fight. Leaving means you cannot rejoin the same
+scene.</p>
+<p>6.3.3 No nitrous in a getaway from a heist or robbery.</p>
+<p>6.3.4 No AI medic or EMS call during a heist or robbery. A medical
+request can be a hostage demand (Rule 6.7.3).</p>
+<h3 id="64-hostages">6.4 Hostages</h3>
+<p>6.4.1 A hostage must be a stranger. Friends, gang members, crew
+members, alts and anyone who agreed OOC may not be a hostage.</p>
+<p>6.4.2 You may not take a hostage in a crime that does not allow one
+in the table. In a small robbery, taking a hostage is a violation unless
+it is an escape from a failed robbery with police on scene.</p>
+<p>6.4.3 Once police arrive, you may not swap or add hostages. If a
+hostage is freed, the robbers may not take a new hostage.</p>
+<p>6.4.4 You may hold a hostage for no more than 30 minutes of real
+time. After that, negotiate or release.</p>
+<p>6.4.5 A hostage must be treated as a person: no sudden killing, no
+torture, no repeated abuse. Do not threaten with CK.</p>
+<p>6.4.6 A hostage player must roleplay fear and follow reasonable
+commands. You may not run, disconnect, use a phone or a radio, or call
+for help unless the robbers allow it.</p>
+<p>6.4.7 Police officers may be hostages only in a scene staff approved
+or when the officer was captured in a firefight. EMS and patients may
+never be hostages.</p>
+<h3 id="65-robbing-the-robbers">6.5 Robbing the robbers</h3>
+<p>6.5.1 You may follow and rob a crew after a heist or burglary for
+their loot, using Rule 6.1 and a valid reason. The rob must be
+roleplayed first and not be a surprise shooting.</p>
+<p>6.5.2 You may not rob a crew who are surrendering to police or in
+custody.</p>
+<p>6.5.3 You may not wait outside a heist location to ambush the crew
+leaving.</p>
+<h3 id="66-police-contact-civilians-and-criminals">6.6 Police contact
+(civilians and criminals)</h3>
+<p>6.6.1 When police give a lawful order (stop, hands up, get out), you
+must respond within 5 seconds in roleplay. You may comply, flee once, or
+negotiate. You may not ignore it.</p>
+<p>6.6.2 <strong>Fleeing.</strong> You may flee on foot or by vehicle
+once per scene. If caught, you must stop and comply. You may not flee a
+second time in the same scene (a scene ends per Section 1.3).</p>
+<p>6.6.3 <strong>Resisting.</strong> You may not shoot at an officer who
+is only arresting you unless you are committing a crime under this
+section. Shooting an officer in a routine stop is RDM.</p>
+<p>6.6.4 <strong>Search and seizure.</strong> You must comply with a
+search. You may not hide items by dropping them, giving them to others,
+or using vehicles, stashes or your phone to avoid a search that officers
+have started.</p>
+<p>6.6.5 <strong>Cuffs and zipties.</strong> A cuffed person cannot use
+items, weapons or phone. You may not break out of cuffs with an emote or
+a trick the game does not allow.</p>
+<p>6.6.6 Do not insult police for no story reason. Do not abuse reports
+of officer actions (use Rule 9.4).</p>
+<p>6.6.7 Prison and jail time are decided by police and the courts.
+Crime scripts never jail you. You must serve your sentence.</p>
+<h3 id="67-negotiation">6.7 Negotiation</h3>
+<p>6.7.1 Demands must be believable. No demands for the whole server's
+cash, a plane, a tank, or the release of unrelated people.</p>
+<p>6.7.2 You may ask for: a getaway vehicle, safe passage, cash within a
+limit staff set (default 100,000 total), or the release of one named
+person arrested in the same scene.</p>
+<p>6.7.3 You may ask for medical attention for one person only, and only
+when there is a real medical need roleplayed.</p>
+<p>6.7.4 If police have not responded to a demand after 10 minutes, they
+may breach. If they have made contact, they may not breach for 15
+minutes, unless a hostage is hurt.</p>
+<p>6.7.5 Police may not breach before the robbers' demands are heard,
+unless a hostage is hurt or the robbers open fire.</p>
+<h3 id="68-scene-conduct">6.8 Scene conduct</h3>
+<p>6.8.1 Once the robbers and hostages have arrived, the scene is closed
+to outside players. Outsiders may not join, rescue or disrupt unless
+they were involved before it began.</p>
+<p>6.8.2 Everyone must stay in scene until it is over. You may not be a
+bystander who watches from a safe place and gives the police information
+IC that you learned OOC.</p>
+<p>6.8.3 If you crash out of the city, tell staff and rejoin the scene
+as it was (Rule 3.7.2).</p>
+</div></details>
+<details class="sec" id="s7"><summary><span class="sn">07</span><span class="st">Economy, Businesses, Property, Exploits and Cheating</span><span class="chev" aria-hidden="true"></span></summary><div class="sb"><h3 id="71-cheating">7.1 Cheating</h3>
+<p>7.1.1 No cheat software, mod menus, injectors, executors, macros,
+auto-clickers, aimbots, wallhacks, ESP, speed hacks, teleport, noclip or
+any program that gives an advantage the game does not.</p>
+<p>7.1.2 No client modifications that change what the server shows or
+how the game plays (visual packs that remove foliage, walls or lighting
+for an advantage, or that hide player names or blips). Cosmetic graphics
+packs that do not give an advantage are allowed. If staff ask you to
+remove a pack, you must.</p>
+<p>7.1.3 Staff may ask you to share a clip or your screen in Discord to
+check for cheats (Rule 9.6.5). Refusing a cheat check can be treated as
+a Tier 4 violation.</p>
+<p>7.1.4 Sharing, selling or helping others to cheat is treated as
+cheating.</p>
+<h3 id="72-exploits-and-duplication">7.2 Exploits and duplication</h3>
+<p>7.2.1 An exploit is using a bug, glitch or a script mistake to gain
+money, items, XP, standing, influence, speed or safety that the system
+did not mean to give.</p>
+<p>7.2.2 Duplication of any item, vehicle, cash or weapon is a permanent
+ban offence.</p>
+<p>7.2.3 <strong>Report within 24 hours.</strong> If you find a bug,
+stop using it and report it to staff within 24 hours of finding it.
+Reports made in time earn a reward decided by staff.</p>
+<p>7.2.4 If you used an exploit before you knew it was one, tell staff
+as soon as you learn. You must give back everything gained by it.</p>
+<p>7.2.5 Using an exploit to gain an advantage in a scene (for example,
+clipping into a hideout, shooting through walls, or hiding in the map)
+is a violation even if no item was gained.</p>
+<p>7.2.6 Staff may roll back, remove or correct anything gained through
+an exploit, with or without notice.</p>
+<h3 id="73-economy-conduct">7.3 Economy conduct</h3>
+<p>7.3.1 All money, items and vehicles in the city belong to your
+character. You may not trade them for anything outside the server (real
+money, other games, accounts, gift cards).</p>
+<p>7.3.2 Staff may adjust balances, prices and rewards for fairness. If
+something was paid or priced by mistake, you must report it (Rule
+7.2.3).</p>
+<p>7.3.3 You may not use alts, hidden accounts or gifts to shift money,
+items or standing between characters (Rule 2.7.1).</p>
+<p>7.3.4 You may not stockpile to cause a shortage on purpose, or fix a
+price with the aim of stopping other players from playing their jobs.
+Pricing your own goods is allowed.</p>
+<p>7.3.5 No AFK money. Any job, farm, plot, lab or process that earns
+money must be done with you present and attentive (Rule 5.4.4).</p>
+<h3 id="74-scams-and-deals">7.4 Scams and deals</h3>
+<p>7.4.1 You may scam another character in roleplay for in-game items
+and cash. The scam must be roleplayed, must be believable and must not
+use a game bug.</p>
+<p>7.4.2 You may not scam for more than 25 percent of the other player's
+total cash, or for anything the player needs to keep playing (home,
+their only vehicle, job license), unless they agreed.</p>
+<p>7.4.3 You may not scam for real money, real items or accounts. That
+is a permanent ban.</p>
+<p>7.4.4 A deal made in roleplay in front of witnesses stands. A deal
+that was made OOC (Discord, text outside the city) does not count.</p>
+<h3 id="75-businesses">7.5 Businesses</h3>
+<p>7.5.1 Player businesses are bought only through the official store
+and created, assigned and removed only by staff. They cannot be sold,
+gifted, traded, lent or transferred by any method.</p>
+<p>7.5.2 If you leave the server or are removed, the business goes back
+to staff.</p>
+<p>7.5.3 The owner is responsible for what happens in the business,
+including illegal activity on the books. An owner who allows illegal
+activity must keep accurate records and give police access to
+audits.</p>
+<p>7.5.4 Do not use a business to launder money unless the owner has
+switched on dirty deposits (Rule 5.3.4).</p>
+<p>7.5.5 Do not close a business only to shut out a rival or deny a
+service for a week or longer without telling staff.</p>
+<p>7.5.6 The owner may not make employees act against server rules,
+including to take a loss for tax or cover a money trail.</p>
+<h3 id="76-homes-apartments-and-storage">7.6 Homes, apartments and
+storage</h3>
+<p>7.6.1 Homes are given by staff only. They cannot be sold, traded or
+lent.</p>
+<p>7.6.2 Player homes, apartments and hideouts cannot be robbed (Rule
+5.8.1). Do not enter another player's home without an invitation.</p>
+<p>7.6.3 Do not use storage as a way to avoid a legal search by police
+that has started (Rule 6.6.4). Police may search a home only through an
+MDT case and warrant.</p>
+<p>7.6.4 Do not store illegal items in public lockers or stashes that
+other characters can open.</p>
+<h3 id="77-supporter-perks">7.7 Supporter perks</h3>
+<p>7.7.1 Supporter items are cosmetic, convenience or access only. They
+do not give an advantage in conflict, income or the law.</p>
+<p>7.7.2 Supporters follow every rule in this book. A supporter perk is
+never a defense.</p>
+<p>7.7.3 Chargebacks, refund abuse or fraud get a permanent ban of the
+account and linked accounts.</p>
+<p>7.7.4 No in-game money, items, or characters are sold for real money.
+Only the official store sells perks, and it never sells in-game
+currency.</p>
+</div></details>
+<details class="sec" id="s8"><summary><span class="sn">08</span><span class="st">Vehicles, Driving and Zones</span><span class="chev" aria-hidden="true"></span></summary><div class="sb"><h3 id="81-driving">8.1 Driving</h3>
+<p>8.1.1 Drive like a person who owns the car and values it. No stunts,
+jumps or drifting in traffic. Racing is allowed only at approved events
+and designated spots.</p>
+<p>8.1.2 <strong>Fail driving.</strong> Driving at high speed through
+traffic for no reason, without a story, or crashing and driving on, is
+Fail RP (Rule 3.1).</p>
+<p>8.1.3 Seat belts, lights and indicators are optional. Crash damage
+and injuries follow the game systems.</p>
+<p>8.1.4 You may not park or leave a vehicle in a way that blocks a
+door, a road, an entrance or a stall pitch for more than 5 minutes.
+Staff may move it.</p>
+<p>8.1.5 <strong>Vehicle theft.</strong> You may steal a vehicle only
+with a valid reason and by the game's methods (lockpick, hotwire). You
+may not steal a vehicle that is parked at a player's home, garage or
+business. You may not steal a vehicle that a player is currently in
+unless it is a carjacking under Rule 6.1.</p>
+<p>8.1.6 Vehicles you steal must be dumped or sold IC within 2 hours.
+You may not store them in a hideout or home.</p>
+<p>8.1.7 Real brand names are not used on any vehicle, plate or shop
+sign that the server provides.</p>
+<h3 id="82-vehicles-as-weapons">8.2 Vehicles as weapons</h3>
+<p>8.2.1 Ramming a person on foot is VDM unless it is part of a valid
+reason (Rule 4.1.3).</p>
+<p>8.2.2 Using a vehicle to block a road to commit a crime is allowed
+only in a heist that allows it. It must be moved within 10 minutes of
+the end.</p>
+<p>8.2.3 Using a car to get inside an interior, shop or building is
+prohibited.</p>
+<h3 id="83-pursuits">8.3 Pursuits</h3>
+<p>8.3.1 A pursuit starts when an officer turns on lights or sirens and
+orders you to stop, or when you commit a crime in front of an officer
+and drive away.</p>
+<p>8.3.2 You may flee once per scene (Rule 6.6.2). A pursuit must make
+sense: do not drive off a cliff, into water or onto rooftops, or take
+paths that vehicles cannot use.</p>
+<p>8.3.3 No leaving the road network for more than 60 seconds. No using
+the shoreline, rail tracks or construction yards to lose the police.</p>
+<p>8.3.4 Ramming police is allowed only in a pursuit and only to push
+the car (a PIT or a block). It is not a way to kill officers.</p>
+<p>8.3.5 If you lose the police, you must go to a normal place and stop
+acting like a fugitive for at least 10 minutes.</p>
+<p>8.3.6 You may not drive a stolen or wanted vehicle through a safe
+zone.</p>
+<h3 id="84-safe-zones">8.4 Safe zones</h3>
+<p>8.4.1 Safe zones are marked on the map. They include the spawn area,
+hospitals, police stations, the courthouse, and any other zone staff
+publish.</p>
+<p>8.4.2 In a safe zone you may not: draw a weapon, attack, rob, kidnap,
+sell drugs, spray tags, run a stall pitch outside a flea market, or
+start any scene.</p>
+<p>8.4.3 A crime that starts outside a safe zone and ends in one may
+continue only if the people involved leave the zone at once. They may
+not use the zone to heal, reset or hide.</p>
+<p>8.4.4 Camping a safe zone entrance to wait for someone is
+prohibited.</p>
+<h3 id="85-zones-in-the-city">8.5 Zones in the city</h3>
+<p>8.5.1 <strong>Gang blocks.</strong> Turf blocks are marked on the
+map. Entering a block triggers a one-line notice for non-police
+characters. The notice is information only. It does not allow
+violence.</p>
+<p>8.5.2 <strong>Restricted places.</strong> Private interiors (police
+stations, hospitals, the courthouse, hideouts, and homes) are
+restricted. Only invited characters may enter.</p>
+<p>8.5.3 <strong>Events.</strong> Event areas are posted by staff.
+Different rules may apply and will be posted.</p>
+</div></details>
+<details class="sec" id="s9"><summary><span class="sn">09</span><span class="st">Staff, Penalties, Reports and Appeals</span><span class="chev" aria-hidden="true"></span></summary><div class="sb"><h3 id="91-penalty-tiers">9.1 Penalty tiers</h3>
+<p>Every rule in this book belongs to a tier. Staff pick the tier by the
+harm done, not by how the player feels about it. Staff may skip steps
+for serious harm, and may never go below the first step.</p>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Tier</th>
+<th>What it covers</th>
+<th>1st</th>
+<th>2nd</th>
+<th>3rd</th>
+<th>4th</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 Minor</td>
+<td>Mic spam, OOC in the city, parking in the way, ignoring a staff
+request once</td>
+<td>Verbal warning</td>
+<td>Written warning</td>
+<td>1-day ban</td>
+<td>3-day ban</td>
+</tr>
+<tr class="even">
+<td>2 Moderate</td>
+<td>Fail RP, NVL, RDM, VDM, powergaming, combat logging, hostage and
+robbery limit breaks</td>
+<td>Written warning</td>
+<td>1-day ban</td>
+<td>3-day ban</td>
+<td>7-day ban</td>
+</tr>
+<tr class="odd">
+<td>3 Severe</td>
+<td>Metagaming, stream sniping, exploit use, cop-count gaming, cooldown
+bypass, alt help, lying to staff</td>
+<td>3-day ban</td>
+<td>7-day ban</td>
+<td>14-day ban</td>
+<td>Permanent</td>
+</tr>
+<tr class="even">
+<td>4 Critical</td>
+<td>Cheats, dupes, hate speech, doxxing, selling items or accounts for
+real money, ban evasion, sexual content involving minors</td>
+<td>Permanent</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table></div>
+<p>9.1.1 A violation in Tier 4 is permanent on the first offense. No
+warning.</p>
+<p>9.1.2 Steps reset after 60 days with no violation in that tier.</p>
+<p>9.1.3 Admin jail (30 to 60 minutes out of the city) may replace a
+written warning when the player is disrupting a scene right now.</p>
+<p>9.1.4 Staff may also remove items, money, vehicles or standing gained
+by the violation (Rule 7.2.6).</p>
+<h3 id="92-gang-strikes">9.2 Gang strikes</h3>
+<p>9.2.1 A serious rule break by a gang member is a strike on the gang,
+as well as on the player (Rule 5.2.4).</p>
+<p>9.2.2 Three strikes in 30 days: the gang is suspended for 7 days (no
+turf, hideout or tablet gang tab). A fourth strike in 30 days: staff may
+disband the gang.</p>
+<h3 id="93-how-to-report">9.3 How to report</h3>
+<p>9.3.1 Open a ticket in the Discord within 24 hours of the event.
+Later reports may be refused.</p>
+<p>9.3.2 A report must have: your character name, the other character or
+player, the time, what happened, and a clip. The clip must show the full
+event, from 60 seconds before it started (Rule 2.3.2).</p>
+<p>9.3.3 Do not argue in the city. Do not start a second scene to settle
+a report.</p>
+<p>9.3.4 Staff answer every report within 24 hours. If a report is not
+answered in 24 hours, ping the staff team once.</p>
+<h3 id="94-standard-of-proof">9.4 Standard of proof</h3>
+<p>9.4.1 Staff need a clip, a server log, or two staff-checked
+statements. One person's word against another's with no clip or log is a
+warning to both sides and a note on the file.</p>
+<p>9.4.2 Staff must write down the rule number, the tier, the evidence
+and the decision for every penalty. The player can ask to see it.</p>
+<h3 id="95-appeals">9.5 Appeals</h3>
+<p>9.5.1 You may appeal any penalty once, in a ticket, within 14 days.
+Say which rule, what happened and what you want.</p>
+<p>9.5.2 A staff member who did not give the penalty reviews it. If a
+Level 3 Admin gave it, a Level 2 or Level 1 reviews it.</p>
+<p>9.5.3 Permanent bans may be appealed after 30 days. Tier 4 permanent
+bans for cheating, hate speech or doxxing are not appealable.</p>
+<p>9.5.4 Lying in an appeal doubles the penalty (Rule 2.3.1).</p>
+<h3 id="96-staff-conduct">9.6 Staff conduct</h3>
+<p>9.6.1 Staff follow every rule in this book in the city. Staff roles
+give no exemptions. Staff may not use their tools for their own
+gain.</p>
+<p>9.6.2 Staff may not punish a player they are in conflict with. They
+must hand the case to another staff member.</p>
+<p>9.6.3 Staff may not share private tickets, logs or player data (Rule
+2.2.2).</p>
+<p>9.6.4 Staff decisions in the city are followed at once (Rule 1.1.3).
+A staff member who is wrong is corrected through the appeal, not in the
+moment.</p>
+<p>9.6.5 Staff may ask you to share a clip or your screen in Discord to
+check for cheats. Staff may never ask to control your computer
+(remote-access tools). You may refuse that and report it.</p>
+</div></details>
+</div>
+</section>
+
+<section id="penalties">
+<div class="sh"><span class="lbl">What happens if you break one</span><h2 class="serif">A clear ladder. No surprises.</h2><p>Staff pick the tier by the harm done. Steps reset after 60 days clean in that tier.</p></div>
+<div class="tiers">
+<div class="tier" style="border-top:2px solid #6fd8c2"><div class="t" style="color:#6fd8c2">TIER 1</div><h3>Minor</h3><p>Mic spam, OOC in the city, parking in the way.</p><ol><li>1st <span>Verbal warning</span></li><li>2nd <span>Written warning</span></li><li>3rd <span>1-day ban</span></li><li>4th <span>3-day ban</span></li></ol></div>
+<div class="tier" style="border-top:2px solid #f0c36a"><div class="t" style="color:#f0c36a">TIER 2</div><h3>Moderate</h3><p>Fail RP, NVL, RDM, VDM, powergaming, combat logging.</p><ol><li>1st <span>Written warning</span></li><li>2nd <span>1-day ban</span></li><li>3rd <span>3-day ban</span></li><li>4th <span>7-day ban</span></li></ol></div>
+<div class="tier" style="border-top:2px solid #e39b5f"><div class="t" style="color:#e39b5f">TIER 3</div><h3>Severe</h3><p>Metagaming, stream sniping, exploits, cop-count gaming, alt help.</p><ol><li>1st <span>3-day ban</span></li><li>2nd <span>7-day ban</span></li><li>3rd <span>14-day ban</span></li><li>4th <span>Permanent</span></li></ol></div>
+<div class="tier" style="border-top:2px solid #e0626b"><div class="t" style="color:#e0626b">TIER 4</div><h3>Critical</h3><p>Cheats, dupes, hate speech, doxxing, real-money sales, ban evasion.</p><ol><li>1st <span>Permanent</span></li></ol></div>
+</div>
+<p class="note">Full details in <a href="#s9">Section 9</a>.</p>
+</section>
+
+<section id="appeals">
+<div class="appeal"><div><h2 class="serif">Think a ruling was wrong?</h2><p>Appeal within 14 days. Staff answer reports within 24 hours. Tickets live in our Discord.</p></div><a class="btn gold" href="https://discord.gg/YOUR-INVITE">Open a ticket in Discord</a></div>
+</section>
+</main>
+<footer>LAKESHORE ROLEPLAY · KNOW THE CODE · OWN THE CITY</footer>
+<a class="totop" id="totop" href="#" aria-label="Back to top"><span class="chev" style="transform:rotate(-135deg);margin-top:6px"></span></a>
+
+<script>
+const ROWS=[{"a": "Spirit", "b": "Same effect as a banned thing = banned. \"Not in the rules\" is not a defense.", "c": "1.1.1", "k": "Everyday", "s": "1"}, {"a": "Staff", "b": "Do what staff say now. Argue in a ticket after.", "c": "1.1.3", "k": "Everyday", "s": "1"}, {"a": "Respect", "b": "No hate, slurs, harassment or doxxing. IC or OOC.", "c": "2.1", "k": "Everyday", "s": "2"}, {"a": "Streams", "b": "2-minute delay. Never use stream info in the city.", "c": "2.5, 3.3", "k": "Everyday", "s": "2"}, {"a": "Alts", "b": "No alts helping your main. No selling stuff for real money.", "c": "2.7, 7.3", "k": "Everyday", "s": "2"}, {"a": "Character", "b": "Act like your character wants to live and feels pain.", "c": "3.1, 3.6", "k": "Everyday", "s": "3"}, {"a": "Info", "b": "Only use what your character saw or heard.", "c": "3.3", "k": "Everyday", "s": "3"}, {"a": "React", "b": "Give people time to react. \"/me tries to\", never \"/me does\".", "c": "3.4", "k": "Everyday", "s": "3"}, {"a": "Logging", "b": "Never log out to dodge a scene. Crashed? Tell staff in 10 minutes.", "c": "3.7", "k": "Everyday", "s": "3"}, {"a": "Respawned", "b": "You forget how you died. Stay away from that spot 20 minutes.", "c": "3.5", "k": "Everyday", "s": "3"}, {"a": "Violence", "b": "Need a real reason to start a fight. No reason = RDM / VDM.", "c": "4.1", "k": "Fights", "s": "4"}, {"a": "Warn", "b": "Warn first and wait 10 seconds. Never shoot people who surrender.", "c": "4.1.5, 4.1.6", "k": "Fights", "s": "4"}, {"a": "KOS", "b": "No kill on sight. Only in a declared gang war.", "c": "4.1.4", "k": "Fights", "s": "4"}, {"a": "Fights", "b": "Max 6 per side. Over that, back off.", "c": "4.2", "k": "Fights", "s": "4"}, {"a": "Gangs", "b": "Only staff-approved gangs. Max 15 members. 3 days of playtime before you can join. No gang hopping.", "c": "5.2", "k": "Crime", "s": "5"}, {"a": "Dirty cash", "b": "Only for supplies, bribes and dues. Launder to spend it.", "c": "5.3", "k": "Crime", "s": "5"}, {"a": "Drugs", "b": "No macros, no AFK farming, no selling in safe zones.", "c": "5.4", "k": "Crime", "s": "5"}, {"a": "Homes", "b": "Never rob homes, apartments, businesses or hideouts. Burglary = designated houses only.", "c": "5.8", "k": "Crime", "s": "5"}, {"a": "Heists", "b": "Need the right number of cops on duty. Never mess with the cop count.", "c": "5.10", "k": "Crime", "s": "5"}, {"a": "Robbing", "b": "Weapon, 10-second demand, leave them something. Same person once per 2 hours.", "c": "6.1", "k": "Robbery & Police", "s": "6"}, {"a": "Hostages", "b": "Strangers only. 30 minutes max.", "c": "6.4", "k": "Robbery & Police", "s": "6"}, {"a": "Police", "b": "Obey a lawful order. You may flee once. Never hide items from a search.", "c": "6.6", "k": "Robbery & Police", "s": "6"}, {"a": "Safe zones", "b": "No weapons, crime or scenes.", "c": "8.4", "k": "Everyday", "s": "8"}, {"a": "Cheats", "b": "No cheats, no dupes, no exploits. Found a bug? Report it in 24 hours.", "c": "7.1, 7.2", "k": "Everyday", "s": "7"}, {"a": "Restart", "b": "No heists in the 30 minutes before a restart.", "c": "5.10.6", "k": "Crime", "s": "5"}];
+const CATS=["All","Everyday","Fights","Crime","Robbery & Police"];
+let cat="All",q="";
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
+const hl=(s,t)=>{s=esc(s);if(!t)return s;const i=s.toLowerCase().indexOf(t);return i<0?s:s.slice(0,i)+"<mark>"+s.slice(i,i+t.length)+"</mark>"+s.slice(i+t.length)};
+function chips(){$("#chips").innerHTML=CATS.map(c=>`<button type="button" class="chip" aria-pressed="${c===cat}" data-c="${c}">${c}</button>`).join("")}
+function draw(){
+ const t=q.toLowerCase().trim();
+ const list=ROWS.filter(r=>(cat==="All"||r.k===cat)&&(!t||(r.a+" "+r.b+" "+r.c).toLowerCase().includes(t)));
+ $("#rows").innerHTML=list.length?list.map(r=>`<div class="row"><div class="a">${hl(r.a,t)}</div><div class="b">${hl(r.b,t)}</div><a class="pill" href="#s${r.s}" data-s="${r.s}">RULE ${esc(r.c)}</a></div>`).join(""):`<div class="empty">No quick rule matches that. Try a simpler word like <em>gang</em> or <em>cops</em>, or check the full rulebook below.</div>`;
+ let full=0;
+ document.querySelectorAll(".sec").forEach(d=>{const hit=!t||d.textContent.toLowerCase().includes(t);d.classList.toggle("hide",!hit);if(hit&&t){full++;d.open=true}});
+ $("#count").textContent=(t||cat!=="All")?`${list.length} quick rule${list.length===1?"":"s"}`+(t?` · ${full} full-rulebook section${full===1?"":"s"} match`:""):`${list.length} quick rules`;
+}
+$("#chips").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(!b)return;cat=b.dataset.c;chips();draw()});
+$("#q").addEventListener("input",e=>{q=e.target.value;draw()});
+document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#s"]');if(!a)return;const d=document.querySelector(a.getAttribute("href"));if(d&&d.tagName==="DETAILS"){d.classList.remove("hide");d.open=true}});
+$("#openall").onclick=()=>document.querySelectorAll(".sec").forEach(d=>d.open=true);
+$("#closeall").onclick=()=>document.querySelectorAll(".sec").forEach(d=>d.open=false);
+addEventListener("scroll",()=>$("#totop").classList.toggle("on",scrollY>900),{passive:true});
+chips();draw();
+</script>
+</body>
+</html>
